@@ -31,7 +31,7 @@ fn generate_workout(intensity: u32, random_number: u32) {
 //Implement caching
 struct Cacher<T> where T: Fn(u32) -> u32{
     calculation: T,
-    value: HashMap<u32>,
+    value: HashMap<u32, u32>,
     }
 
 impl<T> Cacher<T> 
@@ -39,20 +39,21 @@ impl<T> Cacher<T>
         fn new(calculation: T) -> Cacher<T>{
             Cacher{
                 calculation,
-                value: None,
+                value: HashMap::new(),
                 }
         }
 
         fn value(&mut self, arg: u32) -> u32{
-            // execute calculation if value not populated
-            match self.value{
-                Some(v) => v,
+           // execute calculation if value not populated
+            match self.value.get(&arg){
+                Some(v) => v.clone(),
                 None => {
-                    let v = (self.calculation)(arg);
-                    self.value = Some(v);
-                    v
+                    let result = (self.calculation)(arg);
+                    let arg = arg.clone();
+                    self.value.insert(arg, result);
+                    result
                 },
-            }
+            }            
         }
     }
 
