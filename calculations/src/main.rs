@@ -7,7 +7,17 @@ fn main() {
     let simulated_user_specified_value = 10;
     let simulated_random_number = 7;
 
-    generate_workout(simulated_user_specified_value, simulated_random_number);}
+    generate_workout(simulated_user_specified_value, simulated_random_number);
+    
+    let x = 4;
+    //can access x directly in closure, in scope variables are accessible
+    let equal_to_x = |z| z == x;
+    // to take ownership `let equal_to_x = move |z| z == x;`
+
+    let y = 4;
+
+    assert!(equal_to_x(y));
+    }
 
 fn generate_workout(intensity: u32, random_number: u32) {
     //type will get inferred on first
