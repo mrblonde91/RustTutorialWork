@@ -3,6 +3,7 @@ name = "guessing_game"
 version = "0.1.0"
 authors = ["Michael Murphy < 5879863+mrblonde91@users.noreply.github.com>"]
 edition = "2018"
-
+description = "Guessing game from rustbook"
+license = "MIT"
 [dependencies]
 rand="0.3.14"
