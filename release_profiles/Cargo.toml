@@ -1,0 +1,18 @@
+# chapter 14.01
+[package]
+name = "release_profiles"
+version = "0.1.0"
+authors = ["Michael Murphy <5879863+mrblonde91@users.noreply.github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+
+#Opt levels for optimisations, takes longer depending on profile
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

@@ -1,4 +1,4 @@
-//13.02 - Iterators are basically way to implement for loops
+//13.02 - Iterators are basically way to implement for loops, it performs similarly to for and is a zero cost abstraction
 fn main() {
     let v1 = vec![1, 2, 3];
     let v1_iter = v1.iter();
